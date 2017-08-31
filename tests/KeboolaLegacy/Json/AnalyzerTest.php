@@ -1,7 +1,7 @@
 <?php
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
-use Keboola\Json\Test\ParserTestCase;
+use KeboolaLegacy\Json\Test\ParserTestCase;
 use Psr\Log\NullLogger;
 
 class AnalyzerTest extends ParserTestCase
@@ -91,7 +91,7 @@ class AnalyzerTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "integer" to "double" in 'root.id'
      */
     public function testAnalyzeStrictError()
@@ -165,7 +165,7 @@ class AnalyzerTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Data array in 'root.arrOfScalars' contains incompatible data types 'scalar' and 'object'!
      */
     public function testAnalyzeAutoArraysError()
@@ -196,7 +196,7 @@ class AnalyzerTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Data array in 'root.arr' contains incompatible data types 'scalar' and 'object'!
      */
     public function testAnalyzeBadData()
@@ -300,7 +300,7 @@ class AnalyzerTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "arrayOfscalar" to "object" in 'test.arr'
      */
     public function testAnalyzeKnownArrayMismatch()
@@ -340,7 +340,7 @@ class AnalyzerTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Data array in 'test.arr' contains incompatible data types 'scalar' and 'object'!
      */
     public function testAnalyzeKnownArrayMismatch2()
@@ -382,7 +382,7 @@ class AnalyzerTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "integer" to "string" in 'test.arr.data'
      */
     public function testAnalyzeKnownArrayMismatchStrict()

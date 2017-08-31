@@ -1,7 +1,7 @@
 <?php
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
-use Keboola\Json\Exception\JsonParserException;
+use KeboolaLegacy\Json\Exception\JsonParserException;
 use Psr\Log\LoggerInterface;
 
 class Analyzer

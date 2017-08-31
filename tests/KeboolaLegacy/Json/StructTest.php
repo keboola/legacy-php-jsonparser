@@ -1,8 +1,8 @@
 <?php
 
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
-use Keboola\Json\Test\ParserTestCase;
+use KeboolaLegacy\Json\Test\ParserTestCase;
 use Psr\Log\NullLogger;
 
 class StructTest extends ParserTestCase
@@ -74,7 +74,7 @@ class StructTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Error loading data structure definition in 'root.arr.data'! 'potato' is not a valid data type.
      */
     public function testLoadInvalidType()
@@ -90,7 +90,7 @@ class StructTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Error loading data structure definition in 'root.arr.oneTooMany'! '{"data":"potato"}' is not a valid data type.
      */
     public function testLoadTooDeep()

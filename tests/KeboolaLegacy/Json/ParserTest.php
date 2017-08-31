@@ -1,7 +1,7 @@
 <?php
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
-use Keboola\Json\Test\ParserTestCase;
+use KeboolaLegacy\Json\Test\ParserTestCase;
 
 class ParserTest extends ParserTestCase
 {
@@ -335,7 +335,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "integer" to "string" in 'root.field'
      */
     public function testStrictScalarChange()
@@ -422,7 +422,7 @@ class ParserTest extends ParserTestCase
     /**
      * There's no current use case for this.
      * It should, however, be supported as it is a valid JSON string
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unsupported data row in 'root'!
      */
     public function testNestedArraysDisabledError()
@@ -489,7 +489,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "scalar" to "arrayOfscalar" in 'root.strArr'
      */
     public function testStringArrayMixFail()
@@ -511,7 +511,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "arrayOfscalar" to "scalar" in 'root.strArr'
      */
     public function testStringArrayMixFailOppo()
@@ -625,7 +625,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "integer" to "string" in 'root.scalars.data'
      */
     public function testAutoUpgradeToArrayStrict()
@@ -664,7 +664,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\JsonParserException
+     * @expectedException \KeboolaLegacy\Json\Exception\JsonParserException
      * @expectedExceptionMessage Unhandled type change from "arrayOfobject" to "scalar" in 'root.key'
      */
     public function testAutoUpgradeToArrayMismatch()
@@ -757,7 +757,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\NoDataException
+     * @expectedException \KeboolaLegacy\Json\Exception\NoDataException
      * @expectedExceptionMessage Empty data set received for 'root'
      */
     public function testEmptyData()
@@ -768,7 +768,7 @@ class ParserTest extends ParserTestCase
     }
 
     /**
-     * @expectedException \Keboola\Json\Exception\NoDataException
+     * @expectedException \KeboolaLegacy\Json\Exception\NoDataException
      * @expectedExceptionMessage Empty data set received for 'root'
      */
     public function testNullData()

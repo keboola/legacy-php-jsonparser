@@ -1,5 +1,5 @@
 <?php
-namespace Keboola\Json\Exception;
+namespace KeboolaLegacy\Json\Exception;
 
 use Keboola\Utils\Exception;
 

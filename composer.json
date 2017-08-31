@@ -1,5 +1,5 @@
 {
-    "name": "keboola/json-parser",
+    "name": "keboola-legacy/json-parser",
     "description": "Keboola JSON to CSV parser",
     "license": "MIT",
 	"keywords": ["json", "csv", "parser", "converter", "json2csv"],
@@ -23,7 +23,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Keboola\\Json\\": "src/Keboola/Json"
+			"KeboolaLegacy\\Json\\": "src/KeboolaLegacy/Json"
 		}
 	}
 }

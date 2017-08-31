@@ -1,7 +1,7 @@
 <?php
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
-use Keboola\Json\Test\ParserTestCase;
+use KeboolaLegacy\Json\Test\ParserTestCase;
 
 class RealDataTest extends ParserTestCase
 {

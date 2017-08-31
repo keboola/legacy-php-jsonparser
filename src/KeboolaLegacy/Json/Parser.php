@@ -1,11 +1,11 @@
 <?php
 
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
 use Keboola\CsvTable\Table;
 use Keboola\Temp\Temp;
-use Keboola\Json\Exception\JsonParserException;
-use Keboola\Json\Exception\NoDataException;
+use KeboolaLegacy\Json\Exception\JsonParserException;
+use KeboolaLegacy\Json\Exception\NoDataException;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -37,7 +37,7 @@ use Psr\Log\LoggerInterface;
  *
  * @author        Ondrej Vana (kachna@keboola.com)
  * @package        keboola/json-parser
- * @copyright    Copyright (c) 2014 Keboola Data Services (www.keboola.com)
+ * @copyright    Copyright (c) 2014 KeboolaLegacy Data Services (www.keboola.com)
  * @license        GPL-3.0
  * @link        https://github.com/keboola/php-jsonparser
  *
@@ -99,6 +99,7 @@ class Parser
         $this->log = $logger;
         $this->analyzer = $analyzer;
         $this->struct = $struct;
+        ini_set('serialize_precision', 17);
     }
 
     /**
@@ -122,7 +123,7 @@ class Parser
     /**
      * Analyze and store an array of data for parsing.
      * The analysis is done immediately, based on the analyzer settings,
-     * then the data is stored using \Keboola\Json\Cache and parsed
+     * then the data is stored using \KeboolaLegacy\Json\Cache and parsed
      * upon retrieval using getCsvFiles().
      *
      * @param array $data

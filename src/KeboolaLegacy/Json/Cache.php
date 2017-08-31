@@ -1,6 +1,6 @@
 <?php
 
-namespace Keboola\Json;
+namespace KeboolaLegacy\Json;
 
 class Cache
 {

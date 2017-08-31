@@ -1,7 +1,7 @@
 <?php
-namespace Keboola\Json\Test;
+namespace KeboolaLegacy\Json\Test;
 
-use Keboola\Json\Parser;
+use KeboolaLegacy\Json\Parser;
 use Psr\Log\NullLogger;
 
 class ParserTestCase extends \PHPUnit_Framework_TestCase
