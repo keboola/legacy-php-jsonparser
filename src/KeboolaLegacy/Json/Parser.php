@@ -456,9 +456,10 @@ class Parser
 
         $safeType = $this->createSafeName($type);
         if (empty($this->csvFiles[$safeType])) {
-            $this->csvFiles[$safeType] = Table::create(
+            $this->csvFiles[$safeType] = new Table(
                 $safeType,
                 $this->headers[$type],
+                true,
                 $this->getTemp()
             );
             $this->csvFiles[$safeType]->addAttributes(["fullDisplayName" => $type]);
