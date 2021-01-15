@@ -1,6 +1,7 @@
 <?php
 namespace KeboolaLegacy\Json;
 
+use Keboola\Csv\CsvReader;
 use KeboolaLegacy\Json\Test\ParserTestCase;
 
 class RealDataTest extends ParserTestCase
@@ -23,7 +24,8 @@ class RealDataTest extends ParserTestCase
             );
 
             // compare column counts
-            $parsedFile = file($table->getPathname());
+            $headerCount = null;
+            $parsedFile = new CsvReader($table->getPathname());
             foreach ($parsedFile as $row) {
                 if (empty($headerCount)) {
                     $headerCount = count($row);
@@ -89,7 +91,7 @@ class RealDataTest extends ParserTestCase
 
         // -1 offset to compensate for header
         $rows = -1;
-        $handle = fopen($parser->getCsvFiles()['root_statuses'], 'r');
+        $handle = fopen($parser->getCsvFiles()['root_statuses']->getPathName(), 'r');
         while (fgetcsv($handle)) {
             $rows++;
         }
@@ -212,7 +214,8 @@ class RealDataTest extends ParserTestCase
             );
 
             // compare column counts
-            $parsedFile = file($table->getPathname());
+            $headerCount = null;
+            $parsedFile = new CsvReader($table->getPathname());
             foreach ($parsedFile as $row) {
                 if (empty($headerCount)) {
                     $headerCount = count($row);
@@ -245,6 +248,6 @@ class RealDataTest extends ParserTestCase
             '"ag-forecastio","",""' . PHP_EOL .
             '"rcp-distribution-groups","1","1"' . PHP_EOL;
 
-        self::assertEquals($result, file_get_contents($parser->getCsvFiles()['root']));
+        self::assertEquals($result, file_get_contents($parser->getCsvFiles()['root']->getPathName()));
     }
 }

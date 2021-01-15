@@ -32,7 +32,7 @@ class ParserTest extends ParserTestCase
             "0",
             str_getcsv(
                 file(
-                    $parser->getCsvFiles()['entities_hashtags_indices']
+                    $parser->getCsvFiles()['entities_hashtags_indices']->getPathName()
                 )[1] // 2nd row
             )[0] // 1st column
         );
@@ -55,7 +55,7 @@ class ParserTest extends ParserTestCase
         self::assertEquals('id,date', $parser->getCsvFiles()['root']->getPrimaryKey());
         self::assertEquals(
             '"stuff","root_1;2015-10-21"' . PHP_EOL,
-            file($parser->getCsvFiles()['root_data'])[1]
+            file($parser->getCsvFiles()['root_data']->getPathName())[1]
         );
     }
 
@@ -330,7 +330,7 @@ class ParserTest extends ParserTestCase
                 '"string"' . PHP_EOL,
                 '"1"' . PHP_EOL // true gets converted to "1"! should be documented!
             ],
-            file($parser->getCsvFiles()['threepack']->getPathname())
+            file($parser->getCsvFiles()['threepack']->getPathName())
         );
     }
 
@@ -387,7 +387,7 @@ class ParserTest extends ParserTestCase
         );
         self::assertEquals(
             file_get_contents($this->getDataDir() . 'ParentIdsTest.csv'),
-            file_get_contents($parser->getCsvFiles()['test'])
+            file_get_contents($parser->getCsvFiles()['test']->getPathName())
         );
     }
 
@@ -401,7 +401,7 @@ class ParserTest extends ParserTestCase
                 '"a"' . PHP_EOL,
                 '"b"' . PHP_EOL,
             ],
-            file($parser->getCsvFiles()['root']->getPathname())
+            file($parser->getCsvFiles()['root']->getPathName())
         );
     }
 
@@ -457,7 +457,7 @@ class ParserTest extends ParserTestCase
         );
         self::assertEquals(
             file_get_contents($this->getDataDir() . 'NestedArraysJson.csv'),
-            file_get_contents($parser->getCsvFiles()['root'])
+            file_get_contents($parser->getCsvFiles()['root']->getPathName())
         );
     }
 
@@ -484,7 +484,7 @@ class ParserTest extends ParserTestCase
         self::assertEquals(
             '"id","KeywordRanking_attributes_date","KeywordRanking_stuff_I_ARE_POTAT","KeywordRanking_stuff_kek_ser_ou_ly"' . PHP_EOL .
             '"123456","2015-03-20","aaa$@!","now"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['root'])
+            file_get_contents($parser->getCsvFiles()['root']->getPathName())
         );
     }
 
@@ -572,7 +572,7 @@ class ParserTest extends ParserTestCase
             '"root_eae48f50d1159c41f633f876d6c66411"' . PHP_EOL .
             '"root_83cb9491934903381f6808ac79842022"' . PHP_EOL .
             '"root_6d231f9592a4e259452229e2be31f42e"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['root'])
+            file_get_contents($parser->getCsvFiles()['root']->getPathName())
         );
 
         self::assertEquals(
@@ -581,7 +581,7 @@ class ParserTest extends ParserTestCase
             '"val2.1.1","val2.1.2","root_83cb9491934903381f6808ac79842022"' . PHP_EOL .
             '"val2.2.1","","root_83cb9491934903381f6808ac79842022"' . PHP_EOL .
             '"val3.1","val3.2","root_6d231f9592a4e259452229e2be31f42e"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['root_key'])
+            file_get_contents($parser->getCsvFiles()['root_key']->getPathName())
         );
 
         // Test with array first
@@ -612,7 +612,7 @@ class ParserTest extends ParserTestCase
             '"key"' . PHP_EOL .
             '"arr_d03523e758a12366bd7062ee727c4939"' . PHP_EOL .
             '"arr_6d231f9592a4e259452229e2be31f42e"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['arr'])
+            file_get_contents($parser->getCsvFiles()['arr']->getPathName())
         );
 
         self::assertEquals(
@@ -620,7 +620,7 @@ class ParserTest extends ParserTestCase
             '"val2.1.1","val2.1.2","arr_d03523e758a12366bd7062ee727c4939"' . PHP_EOL .
             '"val2.2.1","val2.2.2","arr_d03523e758a12366bd7062ee727c4939"' . PHP_EOL .
             '"val3.1","val3.2","arr_6d231f9592a4e259452229e2be31f42e"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['arr_key'])
+            file_get_contents($parser->getCsvFiles()['arr_key']->getPathName())
         );
     }
 
@@ -723,7 +723,7 @@ class ParserTest extends ParserTestCase
             '"root_0c616a2609bd2e8d88574f3f856170c5"' . PHP_EOL .
             '"root_3cc17a87c69e64707ac357e84e5a9eb8"' . PHP_EOL .
             '"root_af523454cc66582ad5dcec3f171b35ed"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['root'])
+            file_get_contents($parser->getCsvFiles()['root']->getPathName())
         );
 
         self::assertEquals(
@@ -732,7 +732,7 @@ class ParserTest extends ParserTestCase
             '"str2.1","root_3cc17a87c69e64707ac357e84e5a9eb8"' . PHP_EOL .
             '"str2.2","root_3cc17a87c69e64707ac357e84e5a9eb8"' . PHP_EOL .
             '"str3","root_af523454cc66582ad5dcec3f171b35ed"' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['root_key'])
+            file_get_contents($parser->getCsvFiles()['root_key']->getPathName())
         );
     }
 
@@ -752,7 +752,7 @@ class ParserTest extends ParserTestCase
         self::assertEquals(
             '"id","value"' . PHP_EOL .
             '"1",""' . PHP_EOL,
-            file_get_contents($parser->getCsvFiles()['root'])
+            file_get_contents($parser->getCsvFiles()['root']->getPathName())
         );
     }
 
@@ -816,7 +816,7 @@ class ParserTest extends ParserTestCase
             '"s2null_eb89917794221aeda822735efbab9069","s2null_eb89917794221aeda822735efbab9069"' . PHP_EOL .
             '"s2null_77cca534224f13ec1fa45c6c0c98557d","s2null_77cca534224f13ec1fa45c6c0c98557d"' . PHP_EOL .
             '',
-            file_get_contents($parser->getCsvFiles()['s2null'])
+            file_get_contents($parser->getCsvFiles()['s2null']->getPathName())
         );
 
         self::assertEquals(
@@ -824,7 +824,7 @@ class ParserTest extends ParserTestCase
             '"stringArr","s2null_eb89917794221aeda822735efbab9069"' . PHP_EOL .
             '"","s2null_77cca534224f13ec1fa45c6c0c98557d"' . PHP_EOL .
             '',
-            file_get_contents($parser->getCsvFiles()['s2null_val'])
+            file_get_contents($parser->getCsvFiles()['s2null_val']->getPathName())
         );
 
         self::assertEquals(
@@ -832,7 +832,7 @@ class ParserTest extends ParserTestCase
             '"objValue","s2null_eb89917794221aeda822735efbab9069"' . PHP_EOL .
             '"","s2null_77cca534224f13ec1fa45c6c0c98557d"' . PHP_EOL .
             '',
-            file_get_contents($parser->getCsvFiles()['s2null_obj'])
+            file_get_contents($parser->getCsvFiles()['s2null_obj']->getPathName())
         );
 
         self::assertEquals(
@@ -840,7 +840,7 @@ class ParserTest extends ParserTestCase
             '"null2s_eb89917794221aeda822735efbab9069","null2s_eb89917794221aeda822735efbab9069"' . PHP_EOL .
             '"null2s_77cca534224f13ec1fa45c6c0c98557d","null2s_77cca534224f13ec1fa45c6c0c98557d"' . PHP_EOL .
             '',
-            file_get_contents($parser->getCsvFiles()['null2s'])
+            file_get_contents($parser->getCsvFiles()['null2s']->getPathName())
         );
 
         self::assertEquals(
@@ -848,7 +848,7 @@ class ParserTest extends ParserTestCase
             '"stringArr","null2s_eb89917794221aeda822735efbab9069"' . PHP_EOL .
             '"","null2s_77cca534224f13ec1fa45c6c0c98557d"' . PHP_EOL .
             '',
-            file_get_contents($parser->getCsvFiles()['null2s_val'])
+            file_get_contents($parser->getCsvFiles()['null2s_val']->getPathName())
         );
 
         self::assertEquals(
@@ -856,7 +856,7 @@ class ParserTest extends ParserTestCase
             '"objValue","null2s_eb89917794221aeda822735efbab9069"' . PHP_EOL .
             '"","null2s_77cca534224f13ec1fa45c6c0c98557d"' . PHP_EOL .
             '',
-            file_get_contents($parser->getCsvFiles()['null2s_obj'])
+            file_get_contents($parser->getCsvFiles()['null2s_obj']->getPathName())
         );
     }
 
