@@ -47,3 +47,7 @@ The analyze function loops through each row of an array (generally an array of r
 			}
 			will result into a "parent_child" column with a string type of "value1"
 - if it's an array, it'll be passed to analyze() to create a new table, linked by JSON_parentId
+
+## License
+
+MIT licensed, see [LICENSE](./LICENSE) file.
